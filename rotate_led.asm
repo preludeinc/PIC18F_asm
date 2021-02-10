@@ -121,7 +121,7 @@ Main:
 	CLRF	PORTC
 	CLRF	LATC	    ; setting Lat C to an output 
 	
-DELAY			    ; reserving space for delay loop variables
+DELAY			      ; reserving space for delay loop variables
 	MOVLW 0Xac
 	MOVWF DCounter1
 	MOVLW 0X13
@@ -129,24 +129,24 @@ DELAY			    ; reserving space for delay loop variables
 	MOVLW 0X06
 	MOVWF DCounter3
     	
-	MOVLW	B'00000001' ; placing a mask in port C
-	MOVWF	LATC	     ; mask is moved to Lat C
+	MOVLW	B'00000001'     ; placing a mask in port C
+	MOVWF	LATC	        ; mask is moved to Lat C
 	
 LOOPLEFT 
-	CALL	DELAYLOOP   ; calling the delay so we can see an individual LED lit up
-	RLNCF	LATC        ; rotate f left (no carry)
-	BTFSS	PORTC, 7    ; testing to see if port C bit 7 is lit
+	CALL	DELAYLOOP       ; calling the delay so we can see an individual LED lit up
+	RLNCF	LATC            ; rotate f left (no carry)
+	BTFSS	PORTC, 7        ; testing to see if port C bit 7 is lit
 	
-	GOTO	LOOPLEFT    ; go to the top of the loop if not
-	GOTO	LOOPRIGHT   ; go to the loop right loop if bit 7 is lit
+	GOTO	LOOPLEFT        ; go to the top of the loop if not
+	GOTO	LOOPRIGHT       ; go to the loop right loop if bit 7 is lit
 	
 LOOPRIGHT		    
 	CALL	DELAYLOOP
-	RRNCF	LATC	      ; rotate f right (no carry)
-	BTFSS	PORTC, 0    ; testing to see if port C bit 0 is lit
+	RRNCF	LATC	        ; rotate f right (no carry)
+	BTFSS	PORTC, 0        ; testing to see if port C bit 0 is lit
 	
-	GOTO	LOOPRIGHT   ; go to the top of the loop if not
-	GOTO	LOOPLEFT    ; go to the loop left loop if bit 0 is lit
+	GOTO	LOOPRIGHT       ; go to the top of the loop if not
+	GOTO	LOOPLEFT        ; go to the loop left loop if bit 0 is lit
 	
 DELAYLOOP		        ; delay loop of approximately 60 ms
 			        ; delay loop assistance: http://www.onlinepiccompiler.com/delayGeneratorENG.php
