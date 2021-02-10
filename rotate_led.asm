@@ -149,7 +149,7 @@ LOOPRIGHT
 	GOTO	LOOPLEFT    ; go to the loop left loop if bit 0 is lit
 	
 DELAYLOOP		        ; delay loop of approximately 60 ms
-			              ; delay loop assistance: http://www.onlinepiccompiler.com/delayGeneratorENG.php
+			        ; delay loop assistance: http://www.onlinepiccompiler.com/delayGeneratorENG.php
 	DECFSZ DCounter1, 1
 	GOTO DELAYLOOP
 	DECFSZ DCounter2, 1
