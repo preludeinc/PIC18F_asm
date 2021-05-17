@@ -18,7 +18,7 @@
 
 
 ;   Oscillator Selection:
-    CONFIG  OSC = HS             ; HS for 20 MHz
+    CONFIG  OSC = HS              ; HS for 20 MHz
     CONFIG  WDT = OFF             ; Watchdog Timer Enable bit (WDT disabled)
     CONFIG  BOREN = OFF           ; Brown-out Reset Enable bits (Brown-out Reset disabled in hardware and software)
 ;*******************************************************************************
@@ -116,12 +116,12 @@ Main:
 
 ;   *** main code goes here ***
     
-	CLRF	WREG	    ; clears the W register
+	CLRF	WREG	        ; clears the W register
 	CLRF	TRISC	       
 	CLRF	PORTC
-	CLRF	LATC	    ; setting Lat C to an output 
+	CLRF	LATC	        ; setting Lat C to an output 
 	
-DELAY			      ; reserving space for delay loop variables
+DELAY			        ; reserving space for delay loop variables
 	MOVLW 0Xac
 	MOVWF DCounter1
 	MOVLW 0X13
